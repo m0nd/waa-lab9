@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import apiService from '../../services/apiService'
+import { SelectedIdContext } from '../../store/SelectedIdContext';
 import Comments from '../containers/Comments/Comments';
 import './PostDetails.css'
 
 const PostDetails = (props) => {
-    const {selectedPostId, setSelectedPostId} = props;
+    const {selectedPostId} = props;
     const [post, setPost] = useState(undefined);
+    const setSelectedPostId = useContext(SelectedIdContext);
 
     useEffect( () => {
         apiService.getPostById(selectedPostId)

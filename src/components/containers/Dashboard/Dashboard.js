@@ -25,7 +25,7 @@ const Dashboard = () => {
             <h2 className="text-xl font-bold">Dashboard</h2>
             <SelectedIdContext.Provider value={setSelectedPostId}>
                 <div className="dash">
-                    <Posts setSelectedPostId={setSelectedPostId} fetchState={fetchState} />
+                    <Posts fetchState={fetchState} />
                 </div>
 
                 <PostDetails selectedPostId={selectedPostId} setSelectedPostId={setSelectedPostId} toggleFetchState={toggleFetchState} />

@@ -20,10 +20,7 @@ const Posts = (props) => {
     }, [props.fetchState]);
 
     const postComponents = posts.map(post => {
-        return <Post 
-            key={post.id} 
-            post={post} 
-            setSelectedPostId={props.setSelectedPostId} />
+        return <Post key={post.id} post={post} />
     } )
     
     return postComponents;
