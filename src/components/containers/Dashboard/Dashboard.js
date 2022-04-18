@@ -2,6 +2,7 @@ import { useState } from "react";
 import AddPost from "../../AddPost/AddPost";
 import PostDetails from "../../PostDetails/PostDetails";
 import Posts from '../Posts/Posts'
+import { SelectedIdContext } from '../../../store/SelectedIdContext';
 import './Dashboard.css'
 
 const Dashboard = () => {
@@ -21,13 +22,15 @@ const Dashboard = () => {
 
     return (
         <div>
-            <h2>Dashboard</h2>
-            <div className="dash">
-                <Posts setSelectedPostId={setSelectedPostId} fetchState={fetchState} />
-            </div>
+            <h2 className="text-xl font-bold">Dashboard</h2>
+            <SelectedIdContext.Provider value={setSelectedPostId}>
+                <div className="dash">
+                    <Posts setSelectedPostId={setSelectedPostId} fetchState={fetchState} />
+                </div>
 
-            <PostDetails selectedPostId={selectedPostId} setSelectedPostId={setSelectedPostId} toggleFetchState={toggleFetchState} />
-            <AddPost authors={authors} toggleFetchState={toggleFetchState} />
+                <PostDetails selectedPostId={selectedPostId} setSelectedPostId={setSelectedPostId} toggleFetchState={toggleFetchState} />
+                <AddPost authors={authors} toggleFetchState={toggleFetchState} />
+            </SelectedIdContext.Provider>
         </div>
     );
 }
