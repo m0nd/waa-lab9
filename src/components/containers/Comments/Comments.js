@@ -2,7 +2,9 @@ import Comment from "../../Comment/Comment";
 
 const Comments = (props) => {
     const {comments} = props;
-
+    
+    console.log('Rendering Comments...');
+    
     const commentComponents = comments.map(comment => {
         return (<li key={comment.id}><Comment key={comment.id} text={comment.name} /></li>)
     });
